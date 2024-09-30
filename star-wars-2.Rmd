@@ -1,0 +1,60 @@
+---
+title: "Star Wars - Préparation de données"
+author: "Tim Bollé"
+format: html
+---
+
+# Packages et données
+
+Nous allons utiliser une version brute du jeu de données Star Wars. Pour commencer, nous allons charger les packages et les données
+
+```{r}
+#| label: load-packages
+#| warning: false
+#| message: false
+
+library(tidyverse)
+```
+
+```{r}
+#| label: load-data
+#| warning: false
+sw <- read_csv("data/starwars_characters.csv")
+```
+
+# Exercices
+
+## Exercice 1
+
+En jetant un coup d'oeil aux données, déterminer si celles-ci sont Tidy et déterminer les changements à faire.
+
+## Exercice 2
+
+Corrigez la colonne `mass` de sorte à obtenir des nombres
+
+## Exercice 3
+
+Contrôlez les valeurs manquantes dans le jeu de données et assurez vous qu'elles soient correctement désignées de la même manière
+
+## Exercice 4
+
+Transformez la colonne `homeworld` en facteur et attribuez la valeur `Unknown` aux valeurs manquantes
+
+## Exercice 5
+
+Modifiez la colonne `birth_year` pour qu'elle soit de type numérique en enlevant le "BBY". Pour cela, vous pouvez utiliser la fonction `str_replace` du package `stringr` (déjà chargé avec le `tidyverse`)
+
+## Exercice 6
+
+Créez un boxplot de la variable `height` en fonction de la variable `species`. Difficile à lire...
+
+Regroupez les espèces qui possèdent moins de 2 individus dans une catégorie `Other` et refaites le boxplot. C'est mieux...
+
+Ordonnez les catégories selon la hauteur moyenne des espèces et refaite le boxplot !
+
+
+## Exercice 7
+
+Créez une nouvelle variable `bmi` (Body Mass Index) en utilisant les colonnes `mass` et `height`. Assurez-vous que les valeurs soient correctes et que les valeurs manquantes soient traitées correctement.
+
+Refaite le boxplot de la question précédente en utilisant le BMI à la place de la masse.
